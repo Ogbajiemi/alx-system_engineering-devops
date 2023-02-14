@@ -1,0 +1,2 @@
+#!/bin/bash
+echo "it 5 bucks" \$5.00
