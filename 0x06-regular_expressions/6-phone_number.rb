@@ -1,4 +1,7 @@
 #!/usr/bin/env ruby
 
-u = ARGV[0].scan
-puts u(/^\d{10}$/).join
+u = ARGV.length
+if u == 1
+  puts ARGV[0].scan(/^\d{10}$/).join("")
+  exit
+end
