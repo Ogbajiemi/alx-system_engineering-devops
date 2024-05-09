@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+#Employing echo to establish a fresh hosts.new file with an altered loopback address and an additional entry for facebook.com.
+
+cp /etc/hosts ~/hosts.new
+echo "127.0.0.2 localhost" > ~/hosts.new
+echo "8.8.8.8 facebook.com" >> ~/hosts.new
+cp -f ~/hosts.new /etc/hosts
