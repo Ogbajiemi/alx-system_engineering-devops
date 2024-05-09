@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+#A script designed to showcase actively listening Transmission Control Protocol (TCP) and User Datagram Protocol (UDP) ports.
+
+netstat -l
