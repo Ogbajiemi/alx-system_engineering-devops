@@ -2,10 +2,14 @@
 
 #This script checks if a host on the network is reachable by sending ICMP echo requests (pings) to the specified IP address.
 
-fn=$(basename "${BASH_SOURCE[@]}")
+if [ "$#" -ne 1 ]; then
+    echo "Usage: $(basename "$0") {IP_ADDRESS}"
+    exit 1
+fi
 
-if ! [ "$IP" ]; then
-	echo "Usage: ${fn} {IP_ADDRESS}"
+if [[ $1 =~ ^[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
+    ping -c 5 "$1"
 else
-	ping -c 5 "${IP}"
+    echo "Error: Invalid IP address format. Please provide a valid IPv4 address."
+    exit 1
 fi
