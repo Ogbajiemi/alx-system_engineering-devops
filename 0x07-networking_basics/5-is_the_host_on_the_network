@@ -2,15 +2,18 @@
 
 #This script checks if a host on the network is reachable by sending ICMP echo requests (pings) to the specified IP address.
 
-if [ "$#" -ne 1 ]; then
-    echo "Error: Incorrect usage. Please provide the IP address as the only argument."
-    exit 1
+r = [ "$#" -ne 1 ]
+if r
+then
+	echo "Usage: 5-is_the_host_on_the_network {IP_ADDRESS}"
+	exit
 fi
 
-if [[ $1 =~ ^[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
-
-    ping -c 5 "$1"
+a = [[ $1 =~ ^[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+$ ]]
+if a
+then
+	ping -c 5 "$1"
 else
-    echo "Error: Invalid IP address format. Please provide a valid IPv4 address."
-    exit 1
+	echo "Usage: 5-is_the_host_on_the_network {IP_ADDRESS}"
+	exit
 fi
